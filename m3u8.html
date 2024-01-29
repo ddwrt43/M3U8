@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3U8 Embed with hls.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+
+<video controls autoplay muted id="video" controls width="600" height="300"></video>
+<video controls autoplay muted id="video2" controls width="600" height="300"></video>
+<div class="videoplayer">
+<iframe width="600" height="300" src="https://www.mako.co.il/AjaxPage?jspName=embedHTML5video.jsp&galleryChannelId=7c5076a9b8757810VgnVCM100000700a10acRCRD&videoChannelId=d1d6f5dfc8517810VgnVCM100000700a10acRCRD&vcmid=1e2258089b67f510VgnVCM2000002a0c10acRCRD" frameborder="0" allowfullscreen></iframe>
+</div>
+<video controls autoplay muted id="video4" controls width="600" height="300"></video>
+<video controls autoplay muted id="video5" controls width="600" height="300"></video>
+<video controls autoplay muted id="video6" controls width="600" height="300"></video>
+<video controls autoplay muted id="video7" controls width="600" height="300"></video>
+
+<script>
+
+
+function m3u8(id,Source) {
+
+  var video = document.getElementById(id);
+  
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(Source);
+    hls.attachMedia(video);
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = 'your_playlist.m3u8';
+  }
+
+}
+
+m3u8('video','https://kan11w.media.kan.org.il/hls/live/2105694/2105694/source1_4k/chunklist.m3u8');
+
+
+m3u8('video2','http://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8');
+
+
+
+m3u8('video3','https://mako-streaming.akamaized.net/direct/hls/live/2033791/k12/index.m3u8?b-in-range=0-1100&hdnea=st%3D1706223986%7Eexp%3D1706224886%7Eacl%3D%2F*%7Ehmac%3D7f82cf545bbac6119047f58ebef2359c12fbe9bb1ba4f4da2bc8d406869209d6');
+
+
+m3u8('video4','https://mako-streaming.akamaized.net/direct/hls/live/2035340/ch24live/video_7201280_p_1.m3u8');
+
+
+m3u8('video5','https://ch14-channel14-content.akamaized.net/hls/live/2104807/CH14_CHANNEL14/master.m3u8');
+
+
+m3u8('video6','https://contactgbs.mmdlive.lldns.net/contactgbs/a40693c59c714fecbcba2cee6e5ab957/chunklist_b1128000.m3u8');
+
+
+
+m3u8('video7','https://amg01742-walla-wallanews-ono-btlna.amagi.tv/playlist/amg01742-walla-wallanews-ono/playlist.m3u8');
+
+</script>
+
+</body>
+</html>
